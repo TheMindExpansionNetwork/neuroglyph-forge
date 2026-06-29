@@ -1,0 +1,8 @@
+{
+  "dataset": "bcbl190626/SpanishBCBL",
+  "hf_url": "https://huggingface.co/datasets/bcbl190626/SpanishBCBL",
+  "usage": "Clone brain2qwerty and run v1 training; not 14ch EPOC-native.",
+  "clone": "git clone https://github.com/facebookresearch/brain2qwerty ../brain2qwerty",
+  "hf_error": "No (supported) data files found in bcbl190626/SpanishBCBL",
+  "hint": "Install brain2qwerty deps or download HF snapshot manually"
+}

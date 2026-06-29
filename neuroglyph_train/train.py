@@ -65,39 +65,16 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--output", type=Path, default=Path("checkpoints"))
     args = p.parse_args(argv)
 
-    head = TASK_HEADS[args.task]
-    train_loader, val_loader = train_val_loaders(args.data, task=args.task)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = build_model(args.model, n_channels=14, n_classes=head["n_classes"]).to(device)
-    optimizer = optim.AdamW(model.parameters(), lr=args.lr)
-    loss_fn = nn.CrossEntropyLoss()
+    from neuroglyph_train.engine import train_decoder
 
-    best_acc = 0.0
-    args.output.mkdir(parents=True, exist_ok=True)
-    ckpt_path = args.output / f"{args.model}_{args.task}.pt"
-
-    for epoch in range(1, args.epochs + 1):
-        tr_loss, tr_acc = run_epoch(model, train_loader, optimizer, loss_fn, device)
-        va_loss, va_acc = eval_epoch(model, val_loader, loss_fn, device)
-        print(
-            f"epoch {epoch}/{args.epochs} train_loss={tr_loss:.4f} train_acc={tr_acc:.3f} "
-            f"val_loss={va_loss:.4f} val_acc={va_acc:.3f}"
-        )
-        if va_acc > best_acc:
-            best_acc = va_acc
-            torch.save(
-                {
-                    "model": args.model,
-                    "task": args.task,
-                    "state_dict": model.state_dict(),
-                    "n_channels": 14,
-                    "n_classes": head["n_classes"],
-                    "val_acc": va_acc,
-                },
-                ckpt_path,
-            )
-
-    print(f"saved {ckpt_path} best_val_acc={best_acc:.3f}")
+    train_decoder(
+        task=args.task,
+        data_dir=args.data,
+        model_name=args.model,
+        epochs=args.epochs,
+        lr=args.lr,
+        output_dir=args.output,
+    )
     return 0
 
 

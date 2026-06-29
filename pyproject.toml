@@ -24,6 +24,7 @@ recorder = ["pynput>=1.7"]
 preprocess = ["mne>=1.5"]
 agent = ["fastapi>=0.100", "uvicorn>=0.23", "mcp>=1.0"]
 dev = ["mne>=1.5", "pynput>=1.7", "fastapi>=0.100", "uvicorn>=0.23"]
+cloud = ["modal>=0.64", "datasets>=2.14", "huggingface_hub>=0.20"]
 
 [project.scripts]
 neuroglyph-train = "neuroglyph_train.train:main"

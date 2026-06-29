@@ -29,6 +29,8 @@ Minimum pilot:
 
 ## Optional reference clone
 
+See **`docs/TRAINABLE_DATASETS.md`** for public EEG you can train on today + Modal GPU fine-tuning (`docs/MODAL_TRAINING.md`).
+
 ```bash
 git clone https://github.com/facebookresearch/brain2qwerty ../brain2qwerty
 ```

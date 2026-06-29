@@ -26,5 +26,8 @@
       "trial_id": null,
       "target_sentence": null
     }
-  ]
+  ],
+  "clock_offset_ms": 0.0,
+  "cortex_session_id": null,
+  "headset_id": null
 }

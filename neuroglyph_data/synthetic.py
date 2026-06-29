@@ -56,7 +56,10 @@ def write_synthetic_processed(
     out_dir: Path,
     n_events: int = 256,
     task: str = "hand",
+    n_epochs: int | None = None,
 ) -> Path:
+    if n_epochs is not None:
+        n_events = n_epochs
     out_dir.mkdir(parents=True, exist_ok=True)
     X, y = synthetic_session(n_events=n_events, task=task)
     path = out_dir / f"synthetic_{task}.pt"

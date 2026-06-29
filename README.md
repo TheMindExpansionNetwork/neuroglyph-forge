@@ -55,6 +55,8 @@ python scripts/live_bci_demo.py --seconds 3
 
 Live headset: `docs/CORTEX_SETUP.md` · Unreal: `docs/UNREAL_SETUP.md` · Architecture: `docs/SYSTEM.md` · **Brain map:** `docs/BRAINMAP.md` · [interactive HTML](docs/brainmap.html)
 
+**Train / fine-tune:** `docs/TRAINABLE_DATASETS.md` · **Modal GPU:** `docs/MODAL_TRAINING.md`
+
 ## Repository layout
 
 | Path | Role |
