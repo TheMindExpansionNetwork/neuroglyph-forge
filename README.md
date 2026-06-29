@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/brand/logo-gpt-image-1.png" alt="NeuroGlyph Forge" width="160"/>
+  <img src="assets/brand/logo-gpt-image-2.png" alt="NeuroGlyph Forge" width="160"/>
 </p>
 
 <h1 align="center">NeuroGlyph Forge</h1>
@@ -13,7 +13,11 @@
 </p>
 
 <p align="center">
-  <img src="assets/brand/banner-gpt-image-1.png" alt="NeuroGlyph Forge banner" width="720"/>
+  <img src="assets/brand/banner-gpt-image-2.png" alt="NeuroGlyph Forge banner" width="720"/>
+</p>
+
+<p align="center">
+  <img src="assets/brand/brainmap-gpt-image-2.png" alt="System brain map" width="720"/>
 </p>
 
 ---
@@ -49,7 +53,7 @@ bash scripts/pipeline.sh hand
 python scripts/live_bci_demo.py --seconds 3
 ```
 
-Live headset: `docs/CORTEX_SETUP.md` · Unreal: `docs/UNREAL_SETUP.md` · Architecture: `docs/SYSTEM.md`
+Live headset: `docs/CORTEX_SETUP.md` · Unreal: `docs/UNREAL_SETUP.md` · Architecture: `docs/SYSTEM.md` · **Brain map:** `docs/BRAINMAP.md` · [interactive HTML](docs/brainmap.html)
 
 ## Repository layout
 
@@ -90,13 +94,14 @@ hermes mcp test comfy-cloud   # expects X-API-Key header
 
 ## Brand assets
 
-Regenerate with OpenAI `gpt-image-1`:
+Regenerate with OpenAI **`gpt-image-2`** (fallback `gpt-image-1.5` / `gpt-image-1`):
 
 ```bash
-python scripts/generate_brand_assets.py
+python scripts/generate_brand_assets.py --all
+python scripts/generate_brand_assets.py --brainmap
 ```
 
-Outputs under `assets/brand/`.
+Outputs under `assets/brand/`. If OpenAI billing limit hits, use Hermes **`mcp_comfy_cloud_partner_generate`** with prompts in `assets/brand/manifest.json`.
 
 ## License
 
@@ -106,4 +111,4 @@ Independent implementation. Brain2Qwerty is [CC BY-NC 4.0](https://github.com/fa
 
 - Inspired by [brain2qwerty](https://github.com/facebookresearch/brain2qwerty)  
 - Agent layer: [Hermes Agent](https://github.com/NousResearch/hermes-agent)  
-- Visual promo: OpenAI Images API (`gpt-image-1`) + Comfy Cloud MCP
+- Visual promo: OpenAI Images API (`gpt-image-2`) + Comfy Cloud MCP

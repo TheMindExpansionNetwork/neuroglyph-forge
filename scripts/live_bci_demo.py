@@ -21,13 +21,14 @@ sys.path.insert(0, str(ROOT))
 
 from neuroglyph_agent.hermes_bridge import format_hermes_message
 from neuroglyph_agent.live_decoder import LiveDecoder, LiveDecoderConfig
-from neuroglyph_agent.policy import should_act
+from neuroglyph_agent.policy import ActionRateLimiter, PredictionEvent, should_act
 from neuroglyph_recorder.cortex_client import CortexClient, CortexConfig
 from neuroglyph_unreal.ue_actions import prediction_to_unreal_action
 
 
 async def run_demo(checkpoint: Path, live: bool, seconds: float, task: str) -> int:
     dec = LiveDecoder(LiveDecoderConfig(checkpoint=checkpoint, confidence_threshold=0.55))
+    limiter = ActionRateLimiter(min_interval_sec=0.5)
     cortex = CortexClient(CortexConfig(mock=not live))
     await cortex.connect()
     if live:
@@ -48,7 +49,7 @@ async def run_demo(checkpoint: Path, live: bool, seconds: float, task: str) -> i
         if buf_i % step != 0:
             continue
         ev = dec.push_sample(__import__("numpy").array(sample))
-        if not ev or not should_act(ev):
+        if not ev or not limiter.should_emit(ev):
             continue
         n_pred += 1
         msg = format_hermes_message(ev)

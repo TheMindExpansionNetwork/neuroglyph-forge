@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>NeuroGlyph Forge — Brain Map</title>
+  <style>
+    :root { --bg:#0a0e1a; --teal:#2dd4bf; --gold:#fbbf24; --muted:#94a3b8; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, sans-serif; background: var(--bg); color:#e2e8f0; padding: 2rem; }
+    h1 { text-align:center; color: var(--teal); letter-spacing: 0.08em; }
+    .flow { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin:2rem 0; }
+    .layer { flex:1 1 160px; max-width:200px; border:1px solid #334155; border-radius:12px; padding:1rem; background:#111827; }
+    .layer h2 { margin:0 0 .5rem; font-size:.85rem; color: var(--gold); }
+    .layer p { margin:0; font-size:.75rem; color: var(--muted); line-height:1.4; }
+    .arrow { align-self:center; color: var(--teal); font-size:1.5rem; }
+    .scalp { margin:2rem auto; max-width:320px; text-align:center; }
+    .scalp svg { width:100%; height:auto; }
+    .side { margin-top:2rem; text-align:center; font-size:.8rem; color: var(--muted); }
+    img.hero { display:block; max-width:960px; margin:2rem auto; border-radius:12px; border:1px solid #334155; }
+  </style>
+</head>
+<body>
+  <h1>NEUROGLYPH FORGE</h1>
+  <p style="text-align:center;color:var(--muted)">EPOC X → Hermes → Unreal · MindBot bus</p>
+  <img class="hero" src="../assets/brand/brainmap-gpt-image-2.png" alt="Brain map infographic" onerror="this.style.display='none'"/>
+  <div class="flow">
+    <div class="layer"><h2>1 · SENSE</h2><p>EPOC X 14ch @ 256 Hz · Cortex WSS · key logger</p></div>
+    <span class="arrow">→</span>
+    <div class="layer"><h2>2 · SYNC</h2><p>CSV + meta JSON · 500 ms epochs · 14×25 @ 50 Hz</p></div>
+    <span class="arrow">→</span>
+    <div class="layer"><h2>3 · LEARN</h2><p>TinyB2Q / EEGNet · hand → zone → intent → char29</p></div>
+    <span class="arrow">→</span>
+    <div class="layer"><h2>4 · REASON</h2><p>Hermes MCP · PredictionEvent only · MindBot narrative</p></div>
+    <span class="arrow">→</span>
+    <div class="layer"><h2>5 · ACT</h2><p>Unreal MCP · BP_NeuroPawn events · confidence ≥ 0.75</p></div>
+  </div>
+  <div class="scalp">
+    <svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="100" cy="110" rx="85" ry="95" fill="none" stroke="#334155" stroke-width="2"/>
+      <g fill="#2dd4bf" font-size="8" text-anchor="middle">
+        <circle cx="70" cy="45" r="5"/><text x="70" y="35">AF3</text>
+        <circle cx="130" cy="45" r="5"/><text x="130" y="35">AF4</text>
+        <circle cx="45" cy="75" r="5"/><text x="45" y="65">F7</text>
+        <circle cx="85" cy="70" r="5"/><text x="85" y="60">F3</text>
+        <circle cx="115" cy="70" r="5"/><text x="115" y="60">F4</text>
+        <circle cx="155" cy="75" r="5"/><text x="155" y="65">F8</text>
+        <circle cx="60" cy="100" r="5"/><text x="60" y="90">FC5</text>
+        <circle cx="140" cy="100" r="5"/><text x="140" y="90">FC6</text>
+        <circle cx="35" cy="120" r="5"/><text x="35" y="110">T7</text>
+        <circle cx="165" cy="120" r="5"/><text x="165" y="110">T8</text>
+        <circle cx="55" cy="150" r="5"/><text x="55" y="140">P7</text>
+        <circle cx="90" cy="155" r="5"/><text x="90" y="145">O1</text>
+        <circle cx="110" cy="155" r="5"/><text x="110" y="145">O2</text>
+        <circle cx="145" cy="150" r="5"/><text x="145" y="140">P8</text>
+      </g>
+    </svg>
+  </div>
+  <p class="side">Comfy Cloud MCP · generative promo · docs/BRAINMAP.md</p>
+</body>
+</html>

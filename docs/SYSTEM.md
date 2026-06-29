@@ -96,3 +96,5 @@ bash scripts/pipeline.sh hand
 4. Optional: live loop `LiveDecoder` + Cortex stream (Premium).
 
 That closes the loop from biology to game engine.
+
+**Visual brain map:** `docs/BRAINMAP.md` · `docs/brainmap.html` · `assets/brand/brainmap-gpt-image-2.png`

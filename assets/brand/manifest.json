@@ -1,11 +1,22 @@
 {
   "project": "NeuroGlyph Forge",
+  "models_tried": [
+    "gpt-image-2",
+    "gpt-image-1.5",
+    "gpt-image-1"
+  ],
+  "generated": {},
   "prompts": {
-    "logo": "App icon logo for 'NeuroGlyph Forge': stylized human brain merged with golden ancient glyph symbol, thin cyan EEG waveform ring, dark navy background, minimal flat vector style, high contrast, no text, centered, professional tech brand",
-    "banner": "Wide promotional banner for NeuroGlyph Forge BCI platform: EMOTIV EEG headset, typing keyboard ghost keys, neural pathways flowing into Unreal Engine hologram city, teal and gold color grade, cinematic sci-fi, no readable small text"
+    "logo": "App icon logo for NeuroGlyph Forge: stylized human brain merged with golden ancient glyph symbol, thin cyan EEG waveform ring, dark navy background, minimal flat vector style, high contrast, no text, centered, professional tech brand",
+    "banner": "Wide promotional banner for NeuroGlyph Forge BCI platform: EMOTIV EEG headset, typing keyboard ghost keys, neural pathways flowing into Unreal Engine hologram city, teal and gold color grade, cinematic sci-fi, no readable small text",
+    "brainmap": "Technical infographic brain map diagram, dark navy background, titled visually as NeuroGlyph Forge system architecture without long readable paragraphs. Five horizontal layers left to right with glowing arrows: 1 SENSE: EMOTIV EPOC X headset 14 EEG channels (AF3 F7 F3 FC5 T7 P7 O1 O2 P8 T8 FC6 F4 F8 AF4) Cortex WebSocket 256Hz plus keyboard keypress timestamps. 2 SYNC: CSV EEG and JSON metadata aligned to 500ms epochs tensor 14 by 25 at 50Hz. 3 LEARN: TinyB2Q and EEGNet training pipeline hand zone intent char29 ladder. 4 REASON: Hermes AI agent receives PredictionEvent confidence only never raw EEG, MindBot synergetic cognition bus branch. 5 ACT: Unreal Engine MCP blueprint events MoveLeft SpawnDebugActor. Side branch: Comfy Cloud MCP for generative art. Include small top-down scalp diagram with 14 electrode dots in realistic EPOC layout. Style: clean sci-fi HUD, teal cyan and gold accents, isometric subtle depth, poster quality for GitHub documentation, legible short layer labels only",
+    "social_preview": "GitHub repository social preview card 1200x630: NeuroGlyph Forge, EEG brainmap infographic left third, bold title area NeuroGlyph Forge, tagline EPOC X to Hermes to Unreal, dark gradient teal purple, minimal text large typography, professional open source BCI project"
   },
   "files": [
     "banner-gpt-image-1.png",
-    "logo-gpt-image-1.png"
+    "banner-gpt-image-2.png",
+    "brainmap-gpt-image-2.png",
+    "logo-gpt-image-1.png",
+    "logo-gpt-image-2.png"
   ]
 }
