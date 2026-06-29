@@ -131,6 +131,14 @@ class AdaptiveQueue:
                     trigger="live_bci_demo_stable",
                 ),
                 QueuedGoal(
+                    id="goal-unreal-integration",
+                    priority=6,
+                    situation=Situation.INTEGRATION.value,
+                    goal="End-to-end Hermes MCP → Unreal BP_NeuroPawn event on gated prediction",
+                    trigger="always_pending",
+                    status="pending",
+                ),
+                QueuedGoal(
                     id="goal-adaptive-doc",
                     priority=5,
                     situation=Situation.DEV_PIPELINE.value,

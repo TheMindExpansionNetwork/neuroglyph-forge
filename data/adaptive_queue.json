@@ -28,6 +28,14 @@
       "status": "pending"
     },
     {
+      "id": "goal-unreal-integration",
+      "priority": 6,
+      "situation": "integration",
+      "goal": "End-to-end Hermes MCP \u2192 Unreal BP_NeuroPawn event on gated prediction",
+      "trigger": "always_pending",
+      "status": "pending"
+    },
+    {
       "id": "goal-adaptive-doc",
       "priority": 5,
       "situation": "dev_pipeline",
