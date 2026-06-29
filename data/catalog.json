@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "language": "en",
+  "headset": "EMOTIV EPOC X",
+  "datasets": {
+    "owned_real_epoc": {
+      "path": "data/raw/",
+      "purpose": "gold_english_typing",
+      "status": "empty",
+      "next": "docs/FIRST_SESSION_PROTOCOL.md"
+    },
+    "owned_synthetic": {
+      "path": "data/processed/",
+      "purpose": "smoke_only",
+      "status": "ready"
+    },
+    "kaggle_emotiv_hands": {
+      "url": "https://www.kaggle.com/datasets/fabriciotorquato/brain-wave-data-from-hands-movement-of-eeg",
+      "status": "not_downloaded"
+    },
+    "spanishbcbl": {
+      "status": "skipped",
+      "note": "English user — reference only, not required"
+    },
+    "hf_publish": {
+      "repo_id": "TheMindExpansionNetwork/neuroglyph-epoc-typing-en-v1",
+      "status": "after_real_sessions"
+    }
+  }
+}
