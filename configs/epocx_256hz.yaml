@@ -1,0 +1,45 @@
+device: emotiv_epoc_x
+sample_rate_raw: 256
+sample_rate_model: 50
+
+channels:
+  - AF3
+  - F7
+  - F3
+  - FC5
+  - T7
+  - P7
+  - O1
+  - O2
+  - P8
+  - T8
+  - FC6
+  - F4
+  - F8
+  - AF4
+
+preprocessing:
+  highpass_hz: 0.1
+  lowpass_hz: 20.0
+  notch_hz: 60
+  rereference: average
+  baseline:
+    start: -0.2
+    end: 0.0
+  epoch:
+    start: -0.2
+    end: 0.3
+  robust_scale: true
+  clamp: 5.0
+
+targets:
+  first_task: hand
+  second_task: keyboard_zone
+  final_task: char29
+
+references:
+  brain2qwerty_v1_dataset: https://huggingface.co/datasets/bcbl190626/SpanishBCBL
+  brain2qwerty_repo: https://github.com/facebookresearch/brain2qwerty
+  emotiv_cortex: https://emotiv.gitbook.io/cortex-api
+  unreal_mcp_docs: https://dev.epicgames.com/documentation/unreal-engine/unreal-mcp-in-unreal-editor
+  hermes_agent: https://github.com/NousResearch/hermes-agent

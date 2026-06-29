@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Data & checkpoints (large / local)
+data/raw/
+data/processed/*.pt
+checkpoints/*.pt
+checkpoints/*.ts
+checkpoints/*.json
+!checkpoints/.gitkeep
+
+# Secrets
+.env
+*.pem
+
+# IDE / OS
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log

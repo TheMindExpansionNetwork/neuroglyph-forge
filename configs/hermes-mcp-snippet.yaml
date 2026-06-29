@@ -1,0 +1,15 @@
+# Paste into ~/AppData/Local/hermes/config.yaml (merge under mcp_servers)
+
+mcp_servers:
+  neuroglyph:
+    command: "D:/neuroglyph-forge/.venv/Scripts/python.exe"
+    args: ["-m", "neuroglyph_agent.hermes_stdio_mcp"]
+    timeout: 300
+    connect_timeout: 60
+
+  unreal-mcp:
+    url: "http://127.0.0.1:8000/mcp"
+    timeout: 180
+    connect_timeout: 60
+
+# Restart Hermes after editing. Tools appear as mcp_neuroglyph_* and mcp_unreal_mcp_*.

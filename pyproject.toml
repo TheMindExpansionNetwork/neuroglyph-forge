@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neuroglyph-forge"
+version = "0.1.0"
+description = "EPOC X EEG typing decoder + Hermes Agent + Unreal MCP BCI framework"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "torch>=2.0",
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "scikit-learn>=1.3",
+  "pydantic>=2.0",
+  "pyyaml>=6.0",
+  "websockets>=12.0",
+  "pytest>=7.0",
+]
+
+[project.optional-dependencies]
+recorder = ["pynput>=1.7"]
+preprocess = ["mne>=1.5"]
+agent = ["fastapi>=0.100", "uvicorn>=0.23", "mcp>=1.0"]
+dev = ["mne>=1.5", "pynput>=1.7", "fastapi>=0.100", "uvicorn>=0.23"]
+
+[project.scripts]
+neuroglyph-train = "neuroglyph_train.train:main"
+neuroglyph-record = "neuroglyph_recorder.session_runner:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+  "neuroglyph_*",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

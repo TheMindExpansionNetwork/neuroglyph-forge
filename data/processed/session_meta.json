@@ -1,0 +1,30 @@
+{
+  "subject_id": "sub-synth",
+  "session_id": "ses-synth",
+  "sample_rate": 256,
+  "headset": "EMOTIV EPOC X",
+  "channels": [
+    "AF3",
+    "F7",
+    "F3",
+    "FC5",
+    "T7",
+    "P7",
+    "O1",
+    "O2",
+    "P8",
+    "T8",
+    "FC6",
+    "F4",
+    "F8",
+    "AF4"
+  ],
+  "events": [
+    {
+      "key": "a",
+      "timestamp_unix_ms": 0,
+      "trial_id": null,
+      "target_sentence": null
+    }
+  ]
+}

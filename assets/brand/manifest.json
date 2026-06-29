@@ -1,0 +1,11 @@
+{
+  "project": "NeuroGlyph Forge",
+  "prompts": {
+    "logo": "App icon logo for 'NeuroGlyph Forge': stylized human brain merged with golden ancient glyph symbol, thin cyan EEG waveform ring, dark navy background, minimal flat vector style, high contrast, no text, centered, professional tech brand",
+    "banner": "Wide promotional banner for NeuroGlyph Forge BCI platform: EMOTIV EEG headset, typing keyboard ghost keys, neural pathways flowing into Unreal Engine hologram city, teal and gold color grade, cinematic sci-fi, no readable small text"
+  },
+  "files": [
+    "banner-gpt-image-1.png",
+    "logo-gpt-image-1.png"
+  ]
+}

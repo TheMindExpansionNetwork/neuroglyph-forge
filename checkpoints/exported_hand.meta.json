@@ -1,0 +1,8 @@
+{
+  "task": "hand",
+  "classes": [
+    "left",
+    "right"
+  ],
+  "n_channels": 14
+}

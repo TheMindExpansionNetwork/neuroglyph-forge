@@ -1,0 +1,6 @@
+task: hand
+model: tiny_b2q
+epochs: 50
+lr: 0.001
+data_dir: data/processed
+output_dir: checkpoints

@@ -1,0 +1,46 @@
+{
+  "task": "hand",
+  "accuracy": 0.9959349632263184,
+  "n_samples": 246,
+  "confusion_matrix": [
+    [
+      142,
+      1
+    ],
+    [
+      0,
+      103
+    ]
+  ],
+  "classification_report": {
+    "left": {
+      "precision": 1.0,
+      "recall": 0.993006993006993,
+      "f1-score": 0.9964912280701754,
+      "support": 143.0
+    },
+    "right": {
+      "precision": 0.9903846153846154,
+      "recall": 1.0,
+      "f1-score": 0.9951690821256038,
+      "support": 103.0
+    },
+    "accuracy": 0.9959349593495935,
+    "macro avg": {
+      "precision": 0.9951923076923077,
+      "recall": 0.9965034965034965,
+      "f1-score": 0.9958301550978896,
+      "support": 246.0
+    },
+    "weighted avg": {
+      "precision": 0.9959740462789244,
+      "recall": 0.9959349593495935,
+      "f1-score": 0.9959376466380986,
+      "support": 246.0
+    }
+  },
+  "classes": [
+    "left",
+    "right"
+  ]
+}
