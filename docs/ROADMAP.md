@@ -23,7 +23,8 @@
 - [ ] Compare against Brain2Qwerty v1 **event timing** from SpanishBCBL (not weights)
 
 ## Phase 4 — MindBot synergetic layer
-- [ ] Decoder events → MindBot message bus
+- [ ] Decoder events → MindBot message bus (`neuroglyph_agent/mindbot_bus.py`)
+- [ ] **Situation-aware adaptation** — `docs/ADAPTIVE_ORCHESTRATION.md`, `AGENT_GOAL.md`, `data/adaptive_queue.json`
 - [ ] Dreaming/CoT logs decoded intent for live stream narrative
 - [ ] Dataset export for MindBot fine-tune (high-signal BCI trajectories)
 

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "active_situation": "dev_pipeline",
+  "overlay": null,
+  "items": [
+    {
+      "id": "goal-real-hand-60",
+      "priority": 10,
+      "situation": "collect_epoc",
+      "goal": "Hand classifier >60% validation accuracy on real EPOC typing sessions",
+      "trigger": "cortex_credentials_set",
+      "status": "pending"
+    },
+    {
+      "id": "goal-modal-finetune",
+      "priority": 8,
+      "situation": "train_finetune",
+      "goal": "Run Modal GPU fine-tune after first real processed_hand.pt upload",
+      "trigger": "real_processed_hand_exists",
+      "status": "pending"
+    },
+    {
+      "id": "goal-mindbot-bus",
+      "priority": 7,
+      "situation": "stream_narrative",
+      "goal": "Emit mindbot_step_v1 JSONL on every gated BCI action in live demo",
+      "trigger": "live_bci_demo_stable",
+      "status": "pending"
+    },
+    {
+      "id": "goal-adaptive-doc",
+      "priority": 5,
+      "situation": "dev_pipeline",
+      "goal": "Keep ADAPTIVE_ORCHESTRATION.md and queue in sync with shipped code",
+      "trigger": "phase_4_mindbot",
+      "status": "done"
+    }
+  ]
+}
