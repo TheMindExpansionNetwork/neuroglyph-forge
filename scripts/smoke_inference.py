@@ -18,6 +18,7 @@ def run_smoke_inference(
     data: Path,
     *,
     n_samples: int = 8,
+    min_accuracy: float = 0.45,
     device: torch.device | None = None,
 ) -> dict[str, Any]:
     """Forward pass on up to ``n_samples`` epochs; return report dict."""
@@ -48,7 +49,7 @@ def run_smoke_inference(
         "val_acc_in_ckpt": blob.get("val_acc"),
         "predictions_sample": preds[: min(16, n)],
         "labels_sample": labels[: min(16, n)],
-        "ok": acc > 0.45,
+        "ok": acc > min_accuracy,
     }
 
 
@@ -57,6 +58,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--checkpoint", type=Path, required=True)
     p.add_argument("--data", type=Path, default=ROOT / "data" / "processed" / "processed_hand.pt")
     p.add_argument("--n-samples", type=int, default=8)
+    p.add_argument("--min-accuracy", type=float, default=0.45, help="Exit 1 if accuracy below this (use 0 for verify-only)")
     p.add_argument("--out", type=Path, default=ROOT / "data" / "smoke_report.json")
     args = p.parse_args(argv)
 
@@ -71,7 +73,9 @@ def main(argv: list[str] | None = None) -> int:
             print(f"data not found: {args.data}")
             return 1
 
-    report = run_smoke_inference(args.checkpoint, args.data, n_samples=args.n_samples)
+    report = run_smoke_inference(
+        args.checkpoint, args.data, n_samples=args.n_samples, min_accuracy=args.min_accuracy
+    )
     print(f"accuracy={report['accuracy']:.4f} (n={report['n_samples']})")
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(report, indent=2), encoding="utf-8")

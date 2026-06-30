@@ -58,6 +58,7 @@ def main(argv: list[str] | None = None) -> int:
     shutil.copy2(args.checkpoint, dest_ckpt)
     (args.out / "README.md").write_text(README, encoding="utf-8")
     meta = torch_load_meta(args.checkpoint)
+    meta["verified_at"] = __import__("datetime").datetime.utcnow().isoformat() + "Z"
     meta["repo"] = args.repo_id
     meta["language"] = "en"
     (args.out / "model_config.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")

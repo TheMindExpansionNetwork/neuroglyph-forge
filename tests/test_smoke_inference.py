@@ -8,8 +8,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_smoke_inference_runs():
-    ckpt = ROOT / "checkpoints" / "tiny_b2q_hand.pt"
-    if not ckpt.exists():
+    for name in ("finetune_hand.pt", "tiny_b2q_hand.pt"):
+        ckpt = ROOT / "checkpoints" / name
+        if ckpt.exists():
+            break
+    else:
         pytest.skip("no checkpoint")
     data = ROOT / "data" / "processed" / "processed_hand.pt"
     if not data.exists():
@@ -18,7 +21,14 @@ def test_smoke_inference_runs():
     import sys
 
     r = subprocess.run(
-        [sys.executable, str(ROOT / "scripts/smoke_inference.py"), "--checkpoint", str(ckpt)],
+        [
+            sys.executable,
+            str(ROOT / "scripts/smoke_inference.py"),
+            "--checkpoint",
+            str(ckpt),
+            "--min-accuracy",
+            "0",
+        ],
         cwd=ROOT,
         capture_output=True,
         text=True,

@@ -1,0 +1,9 @@
+{
+  "verified": true,
+  "finetune_val_acc": 1.0,
+  "full_eval_accuracy": 1.0,
+  "smoke_cuda": true,
+  "hf_model": "https://huggingface.co/TheMindExpansionNetwork/NeuroGlyph-EPOC-Typing-v1",
+  "hf_dataset": "https://huggingface.co/datasets/TheMindExpansionNetwork/neuroglyph-epoc-typing-en-v1",
+  "note": "Synthetic sample data; live EPOC will replace weights when recorded."
+}
