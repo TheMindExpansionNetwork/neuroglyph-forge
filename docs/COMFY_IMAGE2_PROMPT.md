@@ -26,6 +26,8 @@ Re-run `brain_art_prompt.py` after each fine-tune so the image prompt tracks **y
 
 ## Render locally (Hermes venv Python)
 
+Pitfall: use `mcp.client.streamable_http`, not `streamablehttp`.
+
 ```bash
 "C:\Users\MindExpander\AppData\Local\hermes\hermes-agent\venv\Scripts\python.exe" scripts/comfy_partner_generate.py --payload assets/brand/comfy-partner_generate-brain-smoke.json
 ```

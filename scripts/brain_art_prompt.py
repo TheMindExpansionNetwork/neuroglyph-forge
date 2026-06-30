@@ -41,7 +41,7 @@ def epoch_visual_brief(X: torch.Tensor, y: int, pred: int, classes: list[str]) -
     match = y == pred
     return (
         f"One keystroke-aligned EEG epoch: {c} parallel micro-wave ribbons over {t} time steps at 50 Hz. "
-        f"Ground truth motor intent: **{label_name}** hand; decoder prediction: **{pred_name}** "
+        f"Ground truth motor intent: {label_name} hand; decoder prediction: {pred_name} "
         f"({'aligned glow' if match else 'fractured split — prediction wrong, tension between teal truth and amber error'}). "
         f"Loudest cortical bands on sensor indices {top_ch} rendered as brighter filament thickness. "
     )
@@ -90,7 +90,7 @@ def build_image_prompt(meta: dict, smoke: dict, *, eval_metrics: dict | None) ->
         )
 
     return (
-        "Generative **data painting** from a real BCI training smoke test (synthetic EPOC-style 14-channel EEG, "
+        "Generative data painting from a real BCI training smoke test (synthetic EPOC-style 14-channel EEG, "
         "English QWERTY keystroke epochs, fine-tuned TinyB2Q decoder on RTX 4070). "
         f"Task: {meta['task']} · val_acc after fine-tune: {meta['val_acc']:.2f} · "
         f"smoke batch accuracy on {smoke['n_smoke']} epochs: {smoke['smoke_accuracy']:.2f}. "
@@ -101,7 +101,7 @@ def build_image_prompt(meta: dict, smoke: dict, *, eval_metrics: dict | None) ->
         "Visual style: dark void #070b14, neural filaments teal #2dd4bf, gold #fbbf24 for correct alignment, "
         "magenta fracture lines only where prediction disagrees with label. "
         "Include a faint ring of 14 EEG electrodes. "
-        "Looks like scientific art + synesthetic brain-to-keyboard energy — **not** a software screenshot, **not** logos, **no** typography. "
+        "Looks like scientific art + synesthetic brain-to-keyboard energy — not a software screenshot, not logos, no typography. "
         "Cinematic 16:9, museum-quality abstract neuroscience."
     )
 
