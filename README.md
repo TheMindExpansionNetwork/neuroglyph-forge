@@ -55,7 +55,16 @@ python scripts/live_bci_demo.py --seconds 3
 
 Live headset: `docs/CORTEX_SETUP.md` · Unreal: `docs/UNREAL_SETUP.md` · Architecture: `docs/SYSTEM.md` · **Brain map:** `docs/BRAINMAP.md` · [interactive HTML](docs/brainmap.html)
 
-**Train:** `docs/TRAINABLE_DATASETS.md` · **Modal:** `docs/MODAL_TRAINING.md` · **Adapt:** `docs/ADAPTIVE_ORCHESTRATION.md` · **Why / English:** `docs/WHAT_THIS_DOES_FOR_YOU.md` · **First session:** `docs/FIRST_SESSION_PROTOCOL.md` · **4070:** `docs/LOCAL_GPU.md` · `data/catalog.json`
+**Train:** `docs/TRAINABLE_DATASETS.md` · **Modal:** `docs/MODAL_TRAINING.md` · **Adapt:** `docs/ADAPTIVE_ORCHESTRATION.md` · **Why / English:** `docs/WHAT_THIS_DOES_FOR_YOU.md` · **First session:** `docs/FIRST_SESSION_PROTOCOL.md` · **4070:** `docs/LOCAL_GPU.md` · **HF upload:** `docs/HF_UPLOAD.md` · `data/catalog.json`
+
+## Hugging Face (artifacts)
+
+| Asset | Repo |
+|-------|------|
+| Fine-tuned hand model | [NeuroGlyph-EPOC-Typing-v1](https://huggingface.co/TheMindExpansionNetwork/NeuroGlyph-EPOC-Typing-v1) |
+| Raw session staging (EN) | [neuroglyph-epoc-typing-en-v1](https://huggingface.co/datasets/TheMindExpansionNetwork/neuroglyph-epoc-typing-en-v1) |
+
+Weights and session CSVs live on HF — not committed to GitHub. Clone code here, pull checkpoints from HF or train locally (`scripts/run_swarm_pipeline.py`).
 
 ## Repository layout
 

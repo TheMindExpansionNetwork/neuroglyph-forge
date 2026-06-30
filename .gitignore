@@ -9,10 +9,11 @@ build/
 
 # Data & checkpoints (large / local)
 data/raw/
-data/processed/*.pt
-checkpoints/*.pt
-checkpoints/*.ts
-checkpoints/*.json
+data/processed/**/*.pt
+data/uploads/
+checkpoints/**/*.pt
+checkpoints/**/*.ts
+checkpoints/**/*.json
 !checkpoints/.gitkeep
 
 # Secrets
