@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="assets/brand/logo-gpt-image-2.png" alt="NeuroGlyph Forge" width="160"/>
+  <a href="https://themindexpansionnetwork.github.io/neuroglyph-forge/">Project site (GitHub Pages)</a>
+  ·
+  <img src="assets/brand/logo-gpt-image-2.png" alt="NeuroGlyph Forge" width="120"/>
 </p>
-
-<h1 align="center">NeuroGlyph Forge</h1>
 
 <p align="center">
   <strong>EPOC X → keystroke-aligned EEG decoder → Hermes Agent → Unreal Engine MCP</strong>
