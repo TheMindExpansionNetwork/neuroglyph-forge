@@ -1,68 +1,35 @@
-# Comfy Cloud MCP — GPT Image 2 prompts (NeuroGlyph)
+# Comfy Cloud gpt-image-2 — art from **brain model smoke data**
 
-Use in Hermes when **comfy-cloud** MCP is loaded (`/reload-mcp` after config). Tool: **`partner_generate`**.
+NeuroGlyph art is **not** a generic hero banner. It is a **data painting** built from:
 
-## MCP payload (copy JSON args)
+1. Fine-tuned checkpoint metadata (`val_acc`, task, 14ch)
+2. **Smoke inference** on `data/processed/processed_hand.pt` (sample epochs)
+3. **Eval** confusion matrix (left/right decoder errors)
 
-```json
-{
-  "type": "image",
-  "model": "openai/images-generations",
-  "prompt": "Wide cinematic hero banner for a tech product called NeuroGlyph Forge. Dark navy background (#070b14), teal (#2dd4bf) and gold (#fbbf24) accents. Center: stylized human head silhouette with glowing neural pathways connecting to a QWERTY keyboard and a game engine viewport wireframe. Subtle EEG electrode ring around the scalp (14 nodes, consumer headset shape, not medical horror). Mood: synergetic cognition, live stream energy, premium sci-fi UI. No text, no logos, no watermarks. Ultra clean composition, soft volumetric light, 16:9.",
-  "aspect_ratio": "16:9",
-  "client_os": "windows",
-  "params": {
-    "model": "gpt-image-2",
-    "quality": "medium",
-    "size": "1536x1024"
-  }
-}
-```
-
-**Expect 15–20+ minutes** on one call. Poll with `get_job_status` / `get_output` if you get a `prompt_id` instead of a direct URL.
-
----
-
-## Alternate prompts
-
-### Brain map (square, docs / GitHub Pages)
-
-```
-Top-down infographic brain map on dark charcoal. Five labeled zones as soft glass panels (no readable tiny text): RECORD, EPOCHS, TRAIN, HERMES, UNREAL. Teal arrows flow left to right. Small icons: EEG headset, epoch waveform, GPU chip, agent node, Unreal logo-style geometric mark (generic, not trademark). Violet highlights. Minimal, Notion-meets-cyberpunk. Square 1:1, no watermark.
-```
-
-### Comfy + BCI stream overlay (9:16)
-
-```
-Vertical stream overlay frame, transparent-friendly edges. NeuroGlyph Forge aesthetic: dark panel, teal border glow. Central motif: brain waves morphing into musical notes and blueprint lines. EMOTIV-style 14-channel arc. Space left for OBS chat. No text. gpt-image-2 friendly, high contrast, readable on 1080p stream.
-```
-
-### MindBot / surreal accent (user taste)
-
-```
-Surreal tech dreamscape in Dalí-meets-cyberpunk: melting clock faces made of EEG waveforms, long-legged elephants carrying GPU towers, ants carrying keyboard keys along neural cables. Deep teal and gold palette, paranoiac double-image hint of a headset inside a galaxy. Wide 16:9, cinematic, no text.
-```
-
----
-
-## Hermes chat (natural language)
-
-If tools are exposed, you can say:
-
-> Call **partner_generate** on comfy-cloud with gpt-image-2, 16:9, quality medium, and this prompt: *[paste hero banner prompt above]*
-
-## Verify MCP
+## Generate prompt from live smoke tensors
 
 ```bash
-hermes mcp test comfy-cloud
+python scripts/brain_art_prompt.py
+# → data/brain_art_prompt.txt
+# → assets/brand/comfy-partner_generate-brain-smoke.json
+# → data/eval_hand.json
+# → data/brain_art_bundle.json
 ```
 
-Auth: `COMFY_CLOUD_API_KEY` in Hermes `.env` must match `config.yaml` → `mcp_servers.comfy-cloud.headers.X-API-Key`, then `/reload-mcp`.
+## Comfy MCP (`partner_generate`)
 
-## Sizes (gpt-image-2)
+Load JSON from `assets/brand/comfy-partner_generate-brain-smoke.json` or ask Hermes:
 
-| Use | `size` | `aspect_ratio` |
-|-----|--------|----------------|
-| GitHub / site hero | `1536x1024` | `16:9` |
-| Logo / icon | `1024x1024` | `1:1` |
-| Stream overlay | `1024x1536` | `9:16` |
+> comfy-cloud **partner_generate** using `comfy-partner_generate-brain-smoke.json` (gpt-image-2, 16:9)
+
+Re-run `brain_art_prompt.py` after each fine-tune so the image prompt tracks **your** decoder state.
+
+## Render locally (Hermes venv Python)
+
+```bash
+"C:\Users\MindExpander\AppData\Local\hermes\hermes-agent\venv\Scripts\python.exe" scripts/comfy_partner_generate.py --payload assets/brand/comfy-partner_generate-brain-smoke.json
+```
+
+## When you have real EPOC sessions
+
+Same script — point `--data` at your subject `processed_hand.pt`. The epoch brief uses **actual** channel energy + misclassified keystrokes.

@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "task": "hand",
+    "model": "tiny_b2q",
+    "n_channels": 14,
+    "n_classes": 2,
+    "val_acc": 1.0
+  },
+  "smoke": {
+    "n_smoke": 32,
+    "smoke_accuracy": 0.46875,
+    "labels_bits": "RLRLRRLRLRRLRLRRLRLRRLRL",
+    "highlight_epoch_index": 0,
+    "classes": [
+      "left",
+      "right"
+    ]
+  },
+  "eval_accuracy": 1.0,
+  "prompt_chars": 1316,
+  "partner_generate": "D:/neuroglyph-forge/assets/brand/comfy-partner_generate-brain-smoke.json"
+}
