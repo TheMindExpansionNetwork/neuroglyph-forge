@@ -1,0 +1,12 @@
+{
+  "type": "image",
+  "model": "openai/images-generations",
+  "prompt": "Wide cinematic hero banner for a tech product called NeuroGlyph Forge. Dark navy background (#070b14), teal (#2dd4bf) and gold (#fbbf24) accents. Center: stylized human head silhouette with glowing neural pathways connecting to a QWERTY keyboard and a game engine viewport wireframe. Subtle EEG electrode ring around the scalp (14 nodes, consumer headset shape, not medical horror). Mood: synergetic cognition, live stream energy, premium sci-fi UI. No text, no logos, no watermarks. Ultra clean composition, soft volumetric light, 16:9.",
+  "aspect_ratio": "16:9",
+  "client_os": "windows",
+  "params": {
+    "model": "gpt-image-2",
+    "quality": "medium",
+    "size": "1536x1024"
+  }
+}
