@@ -25,6 +25,9 @@ python scripts/collect_session.py --duration 600 --live
 ## Process + train (4070)
 
 ```bash
+python scripts/test_gear_finetune.py    # PC pipeline test (no headset)
+python scripts/cortex_probe.py          # mock EEG OK
+python scripts/cortex_probe.py --live   # needs .env + Launcher + headset
 python -m neuroglyph_data.make_epochs_cli --raw data/raw --out data/processed --task hand
 python -m neuroglyph_train.train --task hand --epochs 40
 python -m neuroglyph_train.evaluate --checkpoint checkpoints/tiny_b2q_hand.pt
