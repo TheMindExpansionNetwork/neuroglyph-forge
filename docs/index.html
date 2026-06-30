@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>NeuroGlyph Forge — Mind-linked typing &amp; intent</title>
+  <meta name="description" content="EPOC X BCI → train → Hermes Agent → Comfy MCP → Unreal Engine. MindBot sensory-motor slice."/>
+  <style>
+    :root {
+      --bg: #070b14;
+      --panel: #111827;
+      --border: #1e293b;
+      --teal: #2dd4bf;
+      --gold: #fbbf24;
+      --violet: #a78bfa;
+      --muted: #94a3b8;
+      --text: #e2e8f0;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
+    a { color: var(--teal); }
+    header {
+      text-align: center; padding: 3rem 1.5rem 2rem;
+      background: linear-gradient(180deg, #0f172a 0%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    header h1 { margin: 0; font-size: clamp(1.6rem, 4vw, 2.4rem); letter-spacing: 0.12em; color: var(--teal); }
+    header .tag { color: var(--muted); max-width: 52rem; margin: 1rem auto 0; font-size: 1.05rem; }
+    .badges { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
+    .badges a {
+      display: inline-block; padding: 0.35rem 0.75rem; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--panel); font-size: 0.8rem; text-decoration: none;
+    }
+    .hero-img {
+      display: block; max-width: min(920px, 96vw); margin: 2rem auto; border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+    main { max-width: 960px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    section { margin-bottom: 2.75rem; }
+    h2 {
+      font-size: 1.15rem; color: var(--gold); letter-spacing: 0.06em;
+      border-left: 3px solid var(--teal); padding-left: 0.75rem; margin: 0 0 1rem;
+    }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .card {
+      background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 1.15rem 1.25rem;
+    }
+    .card h3 { margin: 0 0 0.5rem; font-size: 0.95rem; color: var(--violet); }
+    .card p, .card ul { margin: 0; font-size: 0.88rem; color: var(--muted); }
+    .card ul { padding-left: 1.1rem; }
+    .flow {
+      display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; gap: 0.5rem; margin: 1.5rem 0;
+    }
+    .step {
+      flex: 1 1 140px; max-width: 170px; text-align: center; padding: 0.85rem;
+      background: var(--panel); border-radius: 10px; border: 1px solid var(--border); font-size: 0.78rem;
+    }
+    .step strong { display: block; color: var(--teal); margin-bottom: 0.35rem; }
+    .arrow { color: var(--teal); align-self: center; font-size: 1.25rem; }
+    pre {
+      background: #0c1220; border: 1px solid var(--border); border-radius: 10px; padding: 1rem;
+      overflow-x: auto; font-size: 0.78rem; color: #cbd5e1;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; }
+    th { background: var(--panel); color: var(--gold); }
+    footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); }
+    nav.toc { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 2rem; }
+    nav.toc a { font-size: 0.82rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NEUROGLYPH FORGE</h1>
+    <p class="tag">
+      <strong>What we are building:</strong> English keystroke-aligned EEG from your <strong>EMOTIV EPOC X</strong>,
+      fine-tuned decoders on your <strong>RTX 4070</strong>, reasoning in <strong>Hermes Agent</strong>,
+      generative assets via <strong>Comfy Cloud MCP</strong>, and scene control in <strong>Unreal Engine MCP</strong> —
+      the sensory-motor front of <strong>MindBot / synergetic cognition</strong>.
+    </p>
+    <div class="badges">
+      <a href="https://github.com/TheMindExpansionNetwork/neuroglyph-forge">GitHub</a>
+      <a href="https://huggingface.co/TheMindExpansionNetwork/NeuroGlyph-EPOC-Typing-v1">HF Model</a>
+      <a href="https://huggingface.co/datasets/TheMindExpansionNetwork/neuroglyph-epoc-typing-en-v1">HF Dataset</a>
+      <a href="brainmap.html">Brain map</a>
+      <a href="https://github.com/TheMindExpansionNetwork/neuroglyph-forge/blob/master/docs/SYSTEM.md">Architecture (MD)</a>
+    </div>
+    <img class="hero-img" alt="NeuroGlyph banner"
+      src="https://raw.githubusercontent.com/TheMindExpansionNetwork/neuroglyph-forge/master/assets/brand/banner-gpt-image-2.png"/>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <a href="#pipeline">Pipeline</a>
+      <a href="#brain-data">Brain test data</a>
+      <a href="#train">Train &amp; fine-tune</a>
+      <a href="#hermes">Hermes MCP</a>
+      <a href="#comfy">Comfy UI MCP</a>
+      <a href="#unreal">Unreal Engine</a>
+      <a href="#mindbot">MindBot bus</a>
+      <a href="#quickstart">Quick start</a>
+    </nav>
+
+    <section id="pipeline">
+      <h2>End-to-end pipeline</h2>
+      <div class="flow">
+        <div class="step"><strong>1 · RECORD</strong>Cortex Premium EEG + QWERTY key times</div>
+        <span class="arrow">→</span>
+        <div class="step"><strong>2 · EPOCHS</strong>−200…+300 ms · 14×25 @ 50 Hz</div>
+        <span class="arrow">→</span>
+        <div class="step"><strong>3 · TRAIN</strong>TinyB2Q / EEGNet · hand → zone → intent</div>
+        <span class="arrow">→</span>
+        <div class="step"><strong>4 · HERMES</strong>MCP tools · confidence gates</div>
+        <span class="arrow">→</span>
+        <div class="step"><strong>5 · ACT</strong>Unreal BP events · Comfy visuals</div>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem">
+        Not Meta-lab 64ch Brain2Qwerty weights — <em>your</em> 14-channel EPOC geometry, English-first labels, deployable on consumer GPU.
+      </p>
+    </section>
+
+    <section id="brain-data">
+      <h2>Brain test data (what we use today)</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Synthetic (CI / smoke)</h3>
+          <p>Generated 14ch epochs for pipeline tests. <code>scripts/download_public_datasets.py synthetic</code></p>
+        </div>
+        <div class="card">
+          <h3>Gear test (mock Cortex)</h3>
+          <p>Mock WSS CSV + injected key events — proves raw → processed → fine-tune on your PC. <code>scripts/test_gear_finetune.py</code></p>
+        </div>
+        <div class="card">
+          <h3>Staging (ST) / HF dataset</h3>
+          <p>Raw sessions staged for upload: <a href="https://huggingface.co/datasets/TheMindExpansionNetwork/neuroglyph-epoc-typing-en-v1">neuroglyph-epoc-typing-en-v1</a>. Catalog: <code>data/catalog.json</code></p>
+        </div>
+        <div class="card">
+          <h3>Gold path (your headset)</h3>
+          <p>~10 min English typing session → <code>data/raw/</code> → fine-tune with frozen encoder. <code>docs/FIRST_SESSION_PROTOCOL.md</code></p>
+        </div>
+      </div>
+      <table style="margin-top:1rem">
+        <tr><th>Source</th><th>Purpose</th><th>On HF?</th></tr>
+        <tr><td>Synthetic hand</td><td>Train smoke, adaptive engine</td><td>No (regen locally)</td></tr>
+        <tr><td>Gear / mock sessions</td><td>Pipeline regression</td><td>Yes (dataset repo)</td></tr>
+        <tr><td>Live EPOC (future)</td><td>Personal decoder weights</td><td>You choose (push script)</td></tr>
+      </table>
+    </section>
+
+    <section id="train">
+      <h2>Pre-download model &amp; fine-tune on your machine</h2>
+      <div class="card">
+        <p>Published checkpoint (hand, English path):</p>
+        <pre>python scripts/download_hf_artifacts.py
+# → checkpoints/hf/NeuroGlyph-EPOC-Typing-v1/
+# → data/hf/neuroglyph-epoc-typing-en-v1/
+
+python scripts/run_swarm_pipeline.py   # full YOLO: data → train → fine-tune → smoke</pre>
+        <p style="margin-top:0.75rem">Local GPU: RTX 4070 12GB + PyTorch cu124 (<code>docs/LOCAL_GPU.md</code>). Inference can stay CPU; training uses CUDA when available.</p>
+      </div>
+    </section>
+
+    <section id="hermes">
+      <h2>Hermes Agent (in-repo MCP)</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>NeuroGlyph MCP server</h3>
+          <ul>
+            <li><code>preprocess_session</code> — raw → epochs</li>
+            <li><code>train_decoder</code> — hand / zone / intent</li>
+            <li><code>run_live_decoder</code> — gated predictions</li>
+            <li><code>send_to_unreal</code> — bridge to UE</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Adaptive situations</h3>
+          <p><code>neuroglyph_agent/adaptive_engine.py</code> reads signals (live vs synthetic, checkpoints, queue) and writes <code>data/adaptive_brief.md</code> so the swarm pivots without re-steering.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="comfy">
+      <h2>Comfy UI / Comfy Cloud MCP</h2>
+      <div class="card">
+        <p>
+          <strong>Role in the stack:</strong> generative layer for promo art, brain-map visuals, stream overlays, and experiment thumbnails —
+          not the EEG decoder itself. Hermes can call <strong>Comfy Cloud MCP</strong> (workflows, templates, image gen) while NeuroGlyph handles BCI.
+        </p>
+        <ul style="margin-top:0.75rem">
+          <li>Brand assets under <code>assets/brand/</code> (GPT-Image-2 pipeline)</li>
+          <li>Live stream: BCI intent → Hermes narrative → Comfy for visuals → OBS / reality live</li>
+          <li>Keep API keys in Hermes auth — never commit to this repo</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="unreal">
+      <h2>Unreal Engine MCP</h2>
+      <div class="card">
+        <p>
+          Editor HTTP MCP with <code>Mcp-Session-Id</code>: <code>list_toolsets</code>, <code>call_tool</code>.
+          Predictions map through <code>neuroglyph_unreal.ue_actions.prediction_to_unreal_action</code>
+          (e.g. <code>MoveLeft</code>, <code>SpawnDebugActor</code>) when confidence ≥ 0.75.
+        </p>
+        <p style="margin-top:0.5rem">Setup: <code>docs/UNREAL_SETUP.md</code> · skill: <code>unreal-engine-mcp</code> in Hermes.</p>
+      </div>
+    </section>
+
+    <section id="mindbot">
+      <h2>MindBot / synergetic cognition</h2>
+      <div class="card">
+        <p>NeuroGlyph emits <code>PredictionEvent</code> JSON into the MindBot bus — Hermes plans, dreams/CoT can comment on intent, Unreal executes. Export trajectories (context + plan + outcome), not raw EEG dumps, for MindBot training.</p>
+        <p><a href="https://github.com/TheMindExpansionNetwork/neuroglyph-forge/blob/master/docs/MINDBOT_INTEGRATION.md">MINDBOT_INTEGRATION.md</a></p>
+      </div>
+    </section>
+
+    <section id="quickstart">
+      <h2>Quick start</h2>
+      <pre>git clone https://github.com/TheMindExpansionNetwork/neuroglyph-forge.git
+cd neuroglyph-forge
+python -m venv .venv && .venv/Scripts/activate
+pip install -e ".[cloud,recorder]"
+pytest tests/ -q
+python scripts/download_hf_artifacts.py
+python scripts/run_swarm_pipeline.py</pre>
+    </section>
+  </main>
+
+  <footer>
+    TheMindExpansionNetwork · NeuroGlyph Forge ·
+    <a href="https://github.com/TheMindExpansionNetwork/neuroglyph-forge">Source</a>
+  </footer>
+</body>
+</html>

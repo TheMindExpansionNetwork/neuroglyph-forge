@@ -51,6 +51,10 @@ def main() -> int:
         return 1
 
     # 2) Sample / training data
+    py_dl = ROOT / "scripts" / "download_hf_artifacts.py"
+    if py_dl.exists():
+        run([py, str(py_dl)])
+
     if not step("synthetic_download", run([py, "scripts/download_public_datasets.py", "synthetic", "--task", "hand", "--n", "1200"])):
         return 1
 
