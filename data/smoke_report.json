@@ -1,0 +1,29 @@
+{
+  "checkpoint": "D:\\neuroglyph-forge\\checkpoints\\finetune_hand.pt",
+  "data": "D:\\neuroglyph-forge\\data\\processed\\gear_test\\processed_hand.pt",
+  "device": "cuda",
+  "n_samples": 8,
+  "accuracy": 0.5,
+  "val_acc_in_ckpt": 0.5416666666666666,
+  "predictions_sample": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    1
+  ],
+  "labels_sample": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    1
+  ],
+  "ok": true
+}

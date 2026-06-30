@@ -55,7 +55,7 @@ python scripts/live_bci_demo.py --seconds 3
 
 Live headset: `docs/CORTEX_SETUP.md` · Unreal: `docs/UNREAL_SETUP.md` · Architecture: `docs/SYSTEM.md` · **Brain map:** `docs/BRAINMAP.md` · [interactive HTML](docs/brainmap.html)
 
-**Adapt:** `docs/ADAPTIVE_ORCHESTRATION.md` · **Why / English path:** `docs/WHAT_THIS_DOES_FOR_YOU.md` · **First headset session:** `docs/FIRST_SESSION_PROTOCOL.md` · **4070 GPU:** `docs/LOCAL_GPU.md` · Data catalog: `data/catalog.json`
+**Train:** `docs/TRAINABLE_DATASETS.md` · **Modal:** `docs/MODAL_TRAINING.md` · **Adapt:** `docs/ADAPTIVE_ORCHESTRATION.md` · **Why / English:** `docs/WHAT_THIS_DOES_FOR_YOU.md` · **First session:** `docs/FIRST_SESSION_PROTOCOL.md` · **4070:** `docs/LOCAL_GPU.md` · `data/catalog.json`
 
 ## Repository layout
 

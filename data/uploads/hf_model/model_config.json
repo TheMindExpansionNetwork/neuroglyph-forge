@@ -1,0 +1,10 @@
+{
+  "model": "tiny_b2q",
+  "task": "hand",
+  "n_channels": 14,
+  "n_classes": 2,
+  "val_acc": 0.5416666666666666,
+  "finetuned": true,
+  "repo": "TheMindExpansionNetwork/NeuroGlyph-EPOC-Typing-v1",
+  "language": "en"
+}

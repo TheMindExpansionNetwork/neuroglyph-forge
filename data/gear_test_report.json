@@ -1,0 +1,7 @@
+{
+  "device_train": "cpu",
+  "cuda_available": false,
+  "finetune_ckpt": "D:\\neuroglyph-forge\\checkpoints\\gear_test\\finetune_hand.pt",
+  "val_acc": 0.5416666666666666,
+  "finetuned": true
+}

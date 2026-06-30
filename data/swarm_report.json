@@ -1,0 +1,31 @@
+{
+  "steps": [
+    {
+      "name": "synthetic_download",
+      "ok": true,
+      "note": "gear test failed but continuing if processed exists"
+    },
+    {
+      "name": "train_hand",
+      "ok": true
+    },
+    {
+      "name": "finetune_gear",
+      "ok": true
+    },
+    {
+      "name": "evaluate",
+      "ok": true
+    },
+    {
+      "name": "smoke_inference",
+      "ok": false
+    }
+  ],
+  "finetune_ckpt": "D:\\neuroglyph-forge\\checkpoints\\finetune_hand.pt",
+  "hf_dataset": "staged_only_no_token",
+  "hf_model": "staged_only_no_token",
+  "cuda": true,
+  "checkpoint": "D:\\neuroglyph-forge\\checkpoints\\finetune_hand.pt",
+  "ok": true
+}

@@ -1,0 +1,7 @@
+{
+  "files": [
+    "processed_hand.pt"
+  ],
+  "task": "hand",
+  "n_epochs": 120
+}
